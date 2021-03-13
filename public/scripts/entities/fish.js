@@ -2,6 +2,7 @@ class Fish extends Denizen {
 
   constructor(options) {
     super(options);
+    this.waterFriction = 0.1; // 10% friction when swimming normally
     this.imageUri = '/images/fish01.png';
     this.maxSwimSpeed = 100;
     this.makeNewVelocity();
@@ -20,6 +21,7 @@ class Fish extends Denizen {
   }
 
   updateOneTick() {
+    this.swimVelocity = this.swimVelocity.scale( 1 - this.waterFriction * PHYSICS_TICK_SIZE_S);
     var delta = this.swimVelocity.scale(PHYSICS_TICK_SIZE_S);
     this.position.addMut(delta);
     this.timeUntilSpeedChange -= PHYSICS_TICK_SIZE_S;
@@ -33,5 +35,7 @@ class Fish extends Denizen {
     this.timeUntilSpeedChange = randRangeInt(5);
   }
 
+/*   kill(duration) {
+  } */
 }
 
