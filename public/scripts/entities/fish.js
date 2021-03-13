@@ -35,7 +35,10 @@ class Fish extends Denizen {
     this.timeUntilSpeedChange = randRangeInt(5);
   }
 
-/*   kill(duration) {
-  } */
+  kill(duration) {
+    this.swimVelocity = new Vector(0, -100);
+    this.timeUntilSpeedChange = 100;
+    setTimeout( () => super.kill(), 10000); // Remove fish 10s later
+  }
 }
 
