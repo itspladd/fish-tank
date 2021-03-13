@@ -27,7 +27,7 @@ class Denizen {
   update(t) {
     // if you're out of bounds, despawn
     if (this.outOfBounds(this.tank.getBounds())) {
-      this.kill();
+      this.kill(0);
     } else {
       for (var i = 0; i < this.calcPhysicsTicks(t); i++) {
         this.updateOneTick();

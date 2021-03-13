@@ -10,7 +10,7 @@ class BiteFish extends Fish {
     super.updateOneTick();
     const nearbyFood = this.tank.getProximateDenizens(this.position, 50).filter(fish => fish.isTasty)
     if(nearbyFood.length) {
-      nearbyFood.forEach(fish => fish.kill(1));
+      nearbyFood.forEach(fish => fish.kill(3));
     }
   }
 }
