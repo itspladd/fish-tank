@@ -4,6 +4,7 @@ class Fish extends Denizen {
     super(options);
     this.waterFriction = 0.1; // 10% friction when swimming normally
     this.imageUri = '/images/fish01.png';
+    this.deadImageUri = '/images/fish_dead.png';
     this.maxSwimSpeed = 100;
     this.makeNewVelocity();
     this.isTasty = true;
@@ -38,6 +39,7 @@ class Fish extends Denizen {
   kill(duration) {
     this.swimVelocity = new Vector(0, -100);
     this.timeUntilSpeedChange = 100;
+    this.imageUri = this.deadImageUri;
     setTimeout( () => super.kill(), 10000); // Remove fish 10s later
   }
 }
