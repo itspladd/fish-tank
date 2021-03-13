@@ -4,6 +4,7 @@ class SwitchFish extends Fish {
     super(options);
     this.imageUri = '/images/switch-fish.png';
   }
+  
   onClick(event) {
     this.makeNewVelocity(50);
   }
